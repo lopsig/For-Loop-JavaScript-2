@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --negro:      #0d1117;
+  --negro2:     #161b22;
+  --negro3:     #21262d;
+  --azul:       #2f81f7;
+  --azul-dim:   rgba(47,129,247,0.1);
+  --azul-borde: rgba(47,129,247,0.3);
+  --plomo:      #8b949e;
+  --blanco:     #e6edf3;
+  --borde:      #30363d;
+  --mono:       'IBM Plex Mono', monospace;
+  --sans:       'IBM Plex Sans', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--negro);
+  color: var(--blanco);
+  min-height: 100vh;
+  padding: 40px 16px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* ── INSTITUCIÓN ── */
+.institucion {
+  width: 100%;
+  max-width: 620px;
+  text-align: center;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--borde);
+}
+
+.institucion span {
+  display: block;
+  font-family: var(--mono);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--azul);
+  letter-spacing: 4px;
+  margin-bottom: 6px;
+}
+
+.institucion div {
+  font-size: 0.75rem;
+  color: var(--plomo);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ── TALLER ── */
+.taller {
+  width: 100%;
+  max-width: 620px;
+  text-align: center;
+}
+
+.taller span {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--blanco);
+  margin-bottom: 6px;
+}
+
+.taller strong {
+  font-family: var(--mono);
+  color: var(--azul);
+}
+
+.taller div {
+  font-size: 0.75rem;
+  color: var(--plomo);
+  letter-spacing: 1px;
+}
+
+/* ── NOTA ── */
+.nota {
+  display: block;
+  width: 100%;
+  max-width: 620px;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--plomo);
+  background: var(--negro2);
+  border: 1px solid var(--borde);
+  border-left: 3px solid var(--azul);
+  border-radius: 6px;
+  padding: 10px 16px;
+}
+
+.nota::before {
+  content: '// ';
+  color: var(--azul);
+}
+
+/* ── GRID ── */
+.grid {
+  width: 100%;
+  max-width: 620px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+/* ── CARDS ── */
+.card {
+  background: var(--negro2);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--blanco);
+  line-height: 1.4;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  animation: fadeUp 0.4s ease both;
+}
+
+.card:nth-child(1) { animation-delay: 0.05s; }
+.card:nth-child(2) { animation-delay: 0.10s; }
+.card:nth-child(3) { animation-delay: 0.15s; }
+.card:nth-child(4) { animation-delay: 0.20s; }
+
+.card:hover {
+  border-color: var(--azul-borde);
+  box-shadow: 0 0 16px var(--azul-dim);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── BOTONES ── */
+button {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--azul);
+  background: var(--azul-dim);
+  border: 1px solid var(--azul-borde);
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background 0.15s, box-shadow 0.15s, transform 0.1s;
+}
+
+button:hover {
+  background: rgba(47,129,247,0.2);
+  box-shadow: 0 0 12px var(--azul-dim);
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
